@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "message": "Search completed successfully",
+  "count": 2,
+  "results": [
+    {
+      "key": "prizes:1",
+      "year": 2020,
+      "category": "physics",
+      "laureates": "[{\"id\":\"1\",\"firstname\":\"Roger\",\"surname\":\"Penrose\",\"motivation\":\"for the discovery that black hole formation is a robust prediction of the general theory of relativity\"}]"
+    },
+    {
+      "key": "prizes:2", 
+      "year": 2019,
+      "category": "physics",
+      "laureates": "[{\"id\":\"2\",\"firstname\":\"James\",\"surname\":\"Peebles\",\"motivation\":\"for theoretical discoveries in physical cosmology\"}]"
+    }
+  ]
+}

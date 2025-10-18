@@ -1,0 +1,89 @@
+# =========================
+# Java / Maven build files
+# =========================
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+
+# Maven wrapper
+.mvn/
+mvnw
+mvnw.cmd
+
+# =========================
+# IDE & Editor settings
+# =========================
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.ipr
+*.iml
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# VS Code
+.vscode/
+.settings/
+*.code-workspace
+.history/
+
+# =========================
+# Logs & temp files
+# =========================
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# =========================
+# OS-specific files
+# =========================
+# macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+ehthumbs.db
+Desktop.ini
+
+# =========================
+# Node / Frontend (if used)
+# =========================
+node_modules/
+dist/
+build/
+
+# =========================
+# Spring Boot specific
+# =========================
+*.pid
+*.gz
+*.zip
+*.tar
+application-*.yml
+application-*.properties
+
+# =========================
+# VSCode Java Language Server Cache
+# =========================
+.redhat/
+workspaceStorage/
+
+# =========================
+# Custom cache / backup folders
+# =========================
+logs/
+tmp/

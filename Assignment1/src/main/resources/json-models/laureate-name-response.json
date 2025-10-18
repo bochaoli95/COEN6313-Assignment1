@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "message": "Search completed successfully",
+  "count": 1,
+  "results": [
+    {
+      "key": "prizes:1",
+      "year": 2023,
+      "category": "physics",
+      "motivation": "for experimental methods that generate attosecond pulses of light for the study of electron dynamics in matter",
+      "firstName": "Pierre",
+      "lastName": "Agostini"
+    }
+  ]
+}
