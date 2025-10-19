@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import jakarta.annotation.PreDestroy;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 
 @Configuration
 public class GrpcServerConfig {
@@ -22,7 +23,7 @@ public class GrpcServerConfig {
 
     @Bean
     public Server grpcServer() throws IOException {
-        grpcServer = NettyServerBuilder.forPort(grpcPort)
+        grpcServer = NettyServerBuilder.forAddress(new InetSocketAddress("0.0.0.0", 9090))
                 .addService(prizeService)
                 .build()
                 .start();
