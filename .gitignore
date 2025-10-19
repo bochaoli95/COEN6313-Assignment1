@@ -1,0 +1,77 @@
+# === Java ===
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# === Python ===
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.env/
+.venv/
+env/
+venv/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# PyCharm / VSCode settings
+.idea/
+.vscode/
+
+# === OS-specific ===
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# === Test and results ===
+# Results / temp data / analysis output
+results/
+*.csv
+*.tmp
+*.bak
+*.swp
+
+# === Custom ===
+# Ignore generated performance reports or logs
+performance_*.txt
+performance_*.csv
+
+# Ignore compiled gRPC files (if generated)
+*.pb.go
+*.pb.cc
+*.pb.h
+*.pb.java
