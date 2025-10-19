@@ -8,7 +8,7 @@ import io.grpc.ManagedChannelBuilder;
 public class PrizeServiceClient {
     public static void main(String[] args) {
         ManagedChannel channel = ManagedChannelBuilder
-                .forAddress("localhost", 9090)
+                .forAddress("20.151.88.17", 9090)
                 .usePlaintext()
                 .build();
 

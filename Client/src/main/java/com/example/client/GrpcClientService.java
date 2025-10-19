@@ -13,10 +13,10 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class GrpcClientService {
 
-    @Value("${grpc.server.host:localhost}")
+    @Value("${grpc.server.host}")
     private String serverHost;
 
-    @Value("${grpc.server.port:9090}")
+    @Value("${grpc.server.port}")
     private int serverPort;
 
     private ManagedChannel channel;
