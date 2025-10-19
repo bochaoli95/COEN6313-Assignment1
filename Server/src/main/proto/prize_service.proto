@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package prize;
+
+option java_package = "com.example.grpc";
+option java_outer_classname = "PrizeServiceProto";
+
+// Service definition for prize queries
+service PrizeService {
+  // Query 1: Search by category and year range
+  rpc SearchByCategoryAndYearRange(CategoryYearRangeRequest) returns (CategoryYearRangeResponse);
+  
+  // Query 2: Search by motivation keyword
+  rpc SearchByMotivationKeyword(MotivationKeywordRequest) returns (MotivationKeywordResponse);
+  
+  // Query 3: Search by laureate name
+  rpc SearchByLaureateName(LaureateNameRequest) returns (LaureateNameResponse);
+}
+
+// Request for Query 1: Category and Year Range Search
+message CategoryYearRangeRequest {
+  string category = 1;
+  int32 start_year = 2;
+  int32 end_year = 3;
+}
+
+// Response for Query 1: Category and Year Range Search
+message CategoryYearRangeResponse {
+  bool success = 1;
+  string message = 2;
+  int32 count = 3;
+  repeated PrizeData prizes = 4;
+}
+
+// Request for Query 2: Motivation Keyword Search
+message MotivationKeywordRequest {
+  string keyword = 1;
+}
+
+// Response for Query 2: Motivation Keyword Search
+message MotivationKeywordResponse {
+  bool success = 1;
+  string message = 2;
+  int32 total_laureates = 3;
+  repeated PrizeData prizes = 4;
+}
+
+// Request for Query 3: Laureate Name Search
+message LaureateNameRequest {
+  string first_name = 1;
+  string last_name = 2;
+}
+
+// Response for Query 3: Laureate Name Search
+message LaureateNameResponse {
+  bool success = 1;
+  string message = 2;
+  int32 count = 3;
+  repeated LaureateData laureates = 4;
+}
+
+// Common data structures
+message PrizeData {
+  string key = 1;
+  int32 year = 2;
+  string category = 3;
+  string laureates_json = 4;
+}
+
+message LaureateData {
+  string key = 1;
+  int32 year = 2;
+  string category = 3;
+  string motivation = 4;
+  string first_name = 5;
+  string last_name = 6;
+}

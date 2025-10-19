@@ -26,7 +26,7 @@ public class PrizeServiceImpl extends PrizeServiceGrpc.PrizeServiceImplBase {
                     request.getEndYear()
             );
 
-            // 构建返回对象
+            // Build response object
             PrizeServiceProto.CategoryYearRangeResponse.Builder responseBuilder =
                     PrizeServiceProto.CategoryYearRangeResponse.newBuilder()
                             .setSuccess(true)
@@ -36,7 +36,7 @@ public class PrizeServiceImpl extends PrizeServiceGrpc.PrizeServiceImplBase {
             for (Map<String, Object> item : results) {
                 PrizeServiceProto.PrizeData prize = PrizeServiceProto.PrizeData.newBuilder()
                         .setKey((String) item.getOrDefault("key", ""))
-                        .setYear((Integer) item.getOrDefault("year", 0))
+                        .setYear(getIntValue(item.get("year")))
                         .setCategory((String) item.getOrDefault("category", ""))
                         .setLaureatesJson((String) item.getOrDefault("laureates_json", ""))
                         .build();
@@ -69,7 +69,7 @@ public class PrizeServiceImpl extends PrizeServiceGrpc.PrizeServiceImplBase {
             for (Map<String, Object> item : results) {
                 PrizeServiceProto.PrizeData prize = PrizeServiceProto.PrizeData.newBuilder()
                         .setKey((String) item.getOrDefault("key", ""))
-                        .setYear((Integer) item.getOrDefault("year", 0))
+                        .setYear(getIntValue(item.get("year")))
                         .setCategory((String) item.getOrDefault("category", ""))
                         .setLaureatesJson((String) item.getOrDefault("laureates_json", ""))
                         .build();
@@ -105,7 +105,7 @@ public class PrizeServiceImpl extends PrizeServiceGrpc.PrizeServiceImplBase {
                 PrizeServiceProto.LaureateData laureate =
                         PrizeServiceProto.LaureateData.newBuilder()
                                 .setKey((String) item.getOrDefault("key", ""))
-                                .setYear((Integer) item.getOrDefault("year", 0))
+                                .setYear(getIntValue(item.get("year")))
                                 .setCategory((String) item.getOrDefault("category", ""))
                                 .setMotivation((String) item.getOrDefault("motivation", ""))
                                 .setFirstName((String) item.getOrDefault("first_name", ""))
@@ -120,5 +120,25 @@ public class PrizeServiceImpl extends PrizeServiceGrpc.PrizeServiceImplBase {
         } catch (Exception e) {
             responseObserver.onError(e);
         }
+    }
+
+    private int getIntValue(Object value) {
+        if (value == null) {
+            return 0;
+        }
+        if (value instanceof Integer) {
+            return (Integer) value;
+        }
+        if (value instanceof Long) {
+            return ((Long) value).intValue();
+        }
+        if (value instanceof String) {
+            try {
+                return Integer.parseInt((String) value);
+            } catch (NumberFormatException e) {
+                return 0;
+            }
+        }
+        return 0;
     }
 }

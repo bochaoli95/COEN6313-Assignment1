@@ -22,7 +22,6 @@ public class PrizeServiceClient {
                         .setEndYear(2020)
                         .build();
 
-        // 调用远程方法
         PrizeServiceProto.CategoryYearRangeResponse response =
                 stub.searchByCategoryAndYearRange(request);
 

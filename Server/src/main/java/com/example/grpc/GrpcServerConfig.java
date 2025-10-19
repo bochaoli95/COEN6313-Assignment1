@@ -1,7 +1,7 @@
 package com.example.grpc;
 
 import io.grpc.Server;
-import io.grpc.ServerBuilder;
+import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -22,12 +22,12 @@ public class GrpcServerConfig {
 
     @Bean
     public Server grpcServer() throws IOException {
-        grpcServer = ServerBuilder.forPort(grpcPort)
+        grpcServer = NettyServerBuilder.forPort(grpcPort)
                 .addService(prizeService)
                 .build()
                 .start();
 
-        System.out.println("gRPC Server started on port: " + grpcPort);
+        System.out.println("gRPC Server started on 0.0.0.0:" + grpcPort + " (accessible from all interfaces)");
         return grpcServer;
     }
 
