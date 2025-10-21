@@ -58,19 +58,15 @@ public class RedisService {
         try (InputStream inputStream = resource.getInputStream()) {
             JsonNode rootNode = mapper.readTree(inputStream);
             JsonNode prizesNode = rootNode.get("prizes");
-            
             if (prizesNode.isArray()) {
                 int prizeCounter = 1;
                 for (JsonNode prizeNode : prizesNode) {
                     String key = "prizes:" + prizeCounter++;
                     
-                    // Ensure year is stored as a numeric value
                     ObjectNode normalized = prizeNode.deepCopy();
                     if (normalized.has("year")) {
                         normalized.put("year", normalized.get("year").asInt());
                     }
-                    
-                    // Store as JSON in Redis
                     jedis.jsonSet(key, redis.clients.jedis.json.Path2.ROOT_PATH, normalized.toString());
                 }
             }

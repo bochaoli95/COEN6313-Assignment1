@@ -26,14 +26,15 @@ def create_box_plot(delays, title="Delay Analysis", output_file="delay_analysis.
                boxprops=dict(facecolor='lightgreen', alpha=0.8, linewidth=2),
                medianprops=dict(color='red', linewidth=3),
                whiskerprops=dict(linestyle='--', color='black', linewidth=2),
-               capprops=dict(color='black', linewidth=2))
+               capprops=dict(color='black', linewidth=2),
+               whis=10.0, showfliers=False)
     
     ax.set_ylabel('Delay (ms)', fontsize=14, fontweight='bold')
     ax.set_xlabel('Query Type', fontsize=12)
     ax.set_title(title, fontsize=16, fontweight='bold', pad=20)
     
-    y_min = max(0, min(delays) - 15)
-    y_max = max(delays) + 15
+    y_min = max(0, min(delays) - 5)
+    y_max = max(delays) + 5
     ax.set_ylim(y_min, y_max)
     
     y_ticks = np.arange(y_min, y_max + 1, 5)

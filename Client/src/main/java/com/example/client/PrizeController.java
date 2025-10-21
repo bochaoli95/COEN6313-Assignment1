@@ -29,7 +29,7 @@ public class PrizeController {
             result.put("success", response.getSuccess());
             result.put("message", response.getMessage());
             result.put("count", response.getCount());
-            result.put("prizes", response.getPrizesList());
+//            result.put("prizes", response.getPrizesList());
             
             return ResponseEntity.ok(result);
         } catch (Exception e) {
